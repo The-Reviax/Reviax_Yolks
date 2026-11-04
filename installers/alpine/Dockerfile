@@ -23,5 +23,6 @@
 FROM        --platform=$TARGETOS/$TARGETARCH alpine:latest
 
 LABEL       author="Xavier Delpirou" maintainer="administrator@reviax.fr"
+LABEL       org.opencontainers.image.source="https://github.com/The-Reviax/Reviax_Yolks"
 
 RUN         apk add --update --no-cache ca-certificates curl git jq wget

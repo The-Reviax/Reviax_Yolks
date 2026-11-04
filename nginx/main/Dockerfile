@@ -20,19 +20,21 @@
 # SOFTWARE.
 #
 
-FROM alpine:latest
+FROM alpine:3.24
 
 LABEL author="Xavier Delpirou" maintainer="administrator@reviax.fr"
+LABEL org.opencontainers.image.source="https://github.com/The-Reviax/Reviax_Yolks"
 
 RUN apk --update --no-cache add wget bash curl ca-certificates nginx iproute2
 
+RUN adduser -D -h /home/container container
+
 USER container
-ENV  USER container
-ENV HOME /home/container
+ENV USER=container HOME=/home/container
 
 WORKDIR /home/container
 
 COPY ./start.sh /start.sh
 COPY ./entrypoint.sh /entrypoint.sh
 
-CMD ["/bin/ash", "/entrypoint.sh"]
+CMD ["/bin/bash", "/entrypoint.sh"]

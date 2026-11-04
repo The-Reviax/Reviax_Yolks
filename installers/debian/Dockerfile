@@ -20,9 +20,10 @@
 # SOFTWARE.
 #
 
-FROM        --platform=$TARGETOS/$TARGETARCH debian:bullseye-slim
+FROM        --platform=$TARGETOS/$TARGETARCH debian:bookworm-slim
 
 LABEL       author="Xavier Delpirou" maintainer="administrator@reviax.fr"
+LABEL       org.opencontainers.image.source="https://github.com/The-Reviax/Reviax_Yolks"
 
 ENV         DEBIAN_FRONTEND=noninteractive
 

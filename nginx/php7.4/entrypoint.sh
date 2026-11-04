@@ -28,7 +28,7 @@ cd /home/container
 MODIFIED_STARTUP=`eval echo $(echo ${STARTUP} | sed -e 's/{{/${/g' -e 's/}}/}/g')`
 
 # Make internal Docker IP address available to processes.
-export INTERNAL_IP=`ip route get 1 | awk '{print $NF;exit}'`
+export INTERNAL_IP=`ip route get 1 | awk '{for(i=1;i<NF;i++) if($i=="src"){print $(i+1);exit}}'`
 
 # Run the Server
 bash /start.sh "${MODIFIED_STARTUP}"
